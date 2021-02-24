@@ -49,7 +49,7 @@ function App() {
                 {wordData.map((wordObj, i) => <Word key={i} word={wordObj} />)}
                 {thesaurusData.map((wordObj, i) => <ThesaurusResults key={i} results={wordObj} />)}
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
