@@ -16,7 +16,9 @@ function ThesaurusResults(props) {
             <ol>
                 {results.meta.syns.map((synArr, i) => <li key={i}> {synArr.join(", ")} </li>)}
             </ol>
-            <h3>antonyms:</h3>
+            {
+                results.meta.ants.length > 1 && <h3>antonyms:</h3>
+            }
             <ol>
                 {results.meta.ants.map((antArr, i) => <li key={i}> {antArr.join(", ")} </li>)}
             </ol>

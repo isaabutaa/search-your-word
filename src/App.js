@@ -5,7 +5,6 @@ import Header from "./components/Header"
 import SearchForm from "./components/SearchForm"
 import Word from "./components/Word"
 import ThesaurusResults from "./components/ThesaurusResults"
-import Footer from "./components/Footer"
 require("dotenv").config()
 
 function App() {
@@ -41,15 +40,16 @@ function App() {
             .catch(err => console.log(err))
     }
 
+    const definitions = wordData.map((wordObj, i) => <Word key={i} word={wordObj} />)
+    const thesaurusResults = thesaurusData.map((wordObj, i) => <ThesaurusResults key={i} results={wordObj} />)
     return (
         <div>
             <Header />
             <SearchForm searchDictionary={dictionarySearch} searchThesaurus={thesaurusSearch} />
             <div className="search-results">
-                {wordData.map((wordObj, i) => <Word key={i} word={wordObj} />)}
-                {thesaurusData.map((wordObj, i) => <ThesaurusResults key={i} results={wordObj} />)}
+                {definitions}
+                {thesaurusResults}
             </div>
-            {/* <Footer /> */}
         </div>
     )
 }
